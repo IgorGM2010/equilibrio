@@ -142,7 +142,7 @@
 
     .screen-game {
       overflow-y: auto;
-      padding: 1.5rem;
+      padding: 1.5rem 1rem;
     }
 
     .game-shell {
@@ -150,163 +150,172 @@
       max-width: 480px;
       margin: 0 auto;
       padding-bottom: 1rem;
-    }
-
-    .progress-meta {
-      text-align: right;
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .progress-track {
-      width: 100%;
-      height: 4px;
-      border-radius: 2px;
-      background: #CCCCCC;
-      overflow: hidden;
-      margin-bottom: 0.8rem;
-    }
-
-    .progress-fill {
-      width: 0;
-      height: 100%;
-      background: var(--title);
-      border-radius: 2px;
-      transition: width var(--tr);
-    }
-
-    .active-pills {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      min-height: 28px;
-      margin-bottom: 0.9rem;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: opacity var(--tr);
     }
 
-    .indicator-pill {
-      display: inline-flex;
+    .game-header {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      gap: 0.45rem;
-      border-radius: 20px;
-      padding: 4px 12px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
+      width: 100%;
     }
 
-    .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      flex: 0 0 auto;
+    .header-spacer {
+      justify-self: start;
+      width: 18px;
+      height: 18px;
+    }
+
+    .header-title {
+      justify-self: center;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #999999;
+      font-weight: 600;
+    }
+
+    .header-close {
+      justify-self: end;
+      border: none;
+      background: transparent;
+      color: #999999;
+      font-size: 18px;
+      line-height: 1;
+      padding: 0;
+      width: 18px;
+      height: 18px;
+      cursor: default;
+    }
+
+    .indicator-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      justify-items: center;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .indicator-column {
+      text-align: center;
+      opacity: 0.25;
+      transition: opacity var(--tr);
+    }
+
+    .indicator-column.is-active {
+      opacity: 1;
+    }
+
+    .indicator-emoji {
+      display: block;
+      font-size: 26px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .indicator-name {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.4px;
+      color: #666666;
+      line-height: 1.2;
     }
 
     .card {
       background: var(--surface);
-      border-radius: 16px;
+      border-radius: 20px;
       border: 2.5px solid var(--pensamento);
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
       overflow: hidden;
-      margin-bottom: 1rem;
+      width: 92%;
+      margin: 0 auto;
       transition: border-color var(--tr);
     }
 
-    .card-tag {
-      border-bottom: 0.5px solid #EEEEEE;
-      padding: 12px 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      border-radius: 0 0 12px 0;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
     .card-body {
-      padding: 15px 16px 16px;
-    }
-
-    .field-label {
-      margin: 0 0 0.5rem;
-      font-size: 11px;
-      color: #999999;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 600;
+      padding: 0;
     }
 
     .situation-text {
       margin: 0;
+      padding: 1.1rem 1.4rem;
+      text-align: center;
       font-size: 16px;
-      line-height: 1.65;
-      color: var(--text);
+      font-weight: 500;
+      line-height: 1.72;
+      text-wrap: pretty;
+      color: #222222;
     }
 
     .context-label {
-      margin: 10px 0 0;
+      margin: 16px 0 0;
       text-align: center;
       text-transform: uppercase;
       font-size: 11px;
       letter-spacing: 1px;
-      color: #999999;
+      color: #AAAAAA;
       font-weight: 600;
     }
 
     .microfeedback {
-      margin-top: 14px;
+      margin-top: 0;
+      border-top: 0.5px solid #EEEEEE;
       border-left: 3px solid transparent;
-      border-radius: 10px;
-      padding: 10px 11px;
+      border-radius: 0;
+      padding: 0 14px;
       opacity: 0;
       max-height: 0;
       overflow: hidden;
-      transition: opacity var(--tr), max-height var(--tr), padding var(--tr);
+      transition: opacity var(--tr), max-height var(--tr), padding var(--tr), background-color var(--tr), border-left-color var(--tr);
     }
 
     .microfeedback.show {
       opacity: 1;
       max-height: 240px;
-      padding: 10px 11px;
+      padding: 12px 14px;
     }
 
     .microfeedback-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      border-radius: 16px;
-      padding: 4px 8px;
-      font-size: 11px;
+      gap: 0;
+      border-radius: 0;
+      padding: 0;
+      font-size: 12px;
       font-weight: 700;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.4rem;
     }
 
     .microfeedback-text {
       margin: 0;
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .options {
       display: flex;
       flex-direction: column;
       gap: 0.65rem;
+      width: 88%;
+      margin: 0 auto;
     }
 
     .option-btn {
       width: 100%;
       text-align: left;
       background: #FFFFFF;
-      border: 0.5px solid #CCCCCC;
-      border-radius: 12px;
+      border: 1px solid #E0E0E0;
+      border-radius: 14px;
       padding: 14px 16px;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.5;
       color: var(--text);
       cursor: pointer;
-      transition: background-color var(--tr), border-color var(--tr), color var(--tr), opacity var(--tr), transform var(--tr);
+      transition: background-color 200ms ease, border-color var(--tr), color var(--tr), opacity var(--tr), transform var(--tr);
     }
 
     .option-btn:hover {
@@ -314,18 +323,18 @@
     }
 
     .option-btn.is-dimmed {
-      opacity: 0.35;
+      opacity: 0.3;
       pointer-events: none;
     }
 
     .next-btn {
-      width: 100%;
-      margin-top: 0.95rem;
+      width: 88%;
+      margin: 0 auto;
       background: var(--title);
       color: #FFFFFF;
       font-weight: 700;
       border-radius: var(--radius-pill);
-      padding: 13px 16px;
+      padding: 14px;
       font-size: 15px;
       opacity: 0;
       transform: translateY(6px);
@@ -398,8 +407,15 @@
         padding: 1rem;
       }
 
-      .card-body {
-        padding: 14px;
+      .card,
+      .options,
+      .next-btn {
+        width: 96%;
+      }
+
+      .situation-text {
+        font-size: 15.5px;
+        padding: 1rem 1.2rem;
       }
 
       .option-btn {
@@ -422,26 +438,38 @@
 
     <section id="gameScreen" class="screen screen-game is-hidden" aria-live="polite">
       <main class="game-shell">
-        <div class="progress-meta" id="progressText">Carta 1 de 12</div>
-        <div class="progress-track" aria-hidden="true">
-          <div id="progressFill" class="progress-fill"></div>
+        <div class="game-header">
+          <div class="header-spacer" aria-hidden="true"></div>
+          <div id="progressText" class="header-title">CARTA 1 DE 12</div>
+          <button id="closeBtn" class="header-close" type="button" aria-label="Fechar">✕</button>
         </div>
 
-        <div id="activePills" class="active-pills"></div>
+        <div id="indicatorGrid" class="indicator-grid">
+          <div class="indicator-column" data-indicator="Pensamento">
+            <span class="indicator-emoji">💡</span>
+            <span class="indicator-name">Pensamento</span>
+          </div>
+          <div class="indicator-column" data-indicator="Saúde física">
+            <span class="indicator-emoji">☀️</span>
+            <span class="indicator-name">Saúde física</span>
+          </div>
+          <div class="indicator-column" data-indicator="Emoção">
+            <span class="indicator-emoji">🩷</span>
+            <span class="indicator-name">Emoção</span>
+          </div>
+          <div class="indicator-column" data-indicator="Comportamento">
+            <span class="indicator-emoji">🧠</span>
+            <span class="indicator-name">Comportamento</span>
+          </div>
+        </div>
 
         <article id="card" class="card">
-          <div id="cardTag" class="card-tag">
-            <span id="tagDot" class="dot" aria-hidden="true"></span>
-            <span>SITUAÇÃO DO DIA A DIA</span>
-          </div>
           <div class="card-body">
-            <p class="field-label">O que aconteceu?</p>
-            <p id="situationText" class="situation-text"></p>
             <p id="contextText" class="context-label"></p>
+            <p id="situationText" class="situation-text"></p>
 
             <div id="microfeedback" class="microfeedback" role="status" aria-live="polite">
               <div id="feedbackBadge" class="microfeedback-badge">
-                <span id="feedbackDot" class="dot" aria-hidden="true"></span>
                 <span id="feedbackTypeLabel"></span>
               </div>
               <p id="feedbackText" class="microfeedback-text"></p>
@@ -468,24 +496,16 @@
   <script>
     const INDICATOR_STYLE = {
       "Pensamento": {
-        color: "#534AB7",
-        pillBg: "#EEEDFE",
-        pillText: "#3C3489"
+        color: "#E8A020"
       },
       "Emoção": {
-        color: "#993556",
-        pillBg: "#F7E8EE",
-        pillText: "#7A2946"
+        color: "#D4537E"
       },
       "Comportamento": {
-        color: "#0F6E56",
-        pillBg: "#E3F3EE",
-        pillText: "#0B5C48"
+        color: "#C9A0D0"
       },
       "Saúde física": {
-        color: "#854F0B",
-        pillBg: "#F6EBDD",
-        pillText: "#6D3F08"
+        color: "#E8A020"
       }
     };
 
@@ -849,17 +869,14 @@
       startScreen: document.getElementById("startScreen"),
       gameScreen: document.getElementById("gameScreen"),
       startBtn: document.getElementById("startBtn"),
+      closeBtn: document.getElementById("closeBtn"),
       progressText: document.getElementById("progressText"),
-      progressFill: document.getElementById("progressFill"),
-      activePills: document.getElementById("activePills"),
+      indicatorGrid: document.getElementById("indicatorGrid"),
       card: document.getElementById("card"),
-      cardTag: document.getElementById("cardTag"),
-      tagDot: document.getElementById("tagDot"),
       situationText: document.getElementById("situationText"),
       contextText: document.getElementById("contextText"),
       microfeedback: document.getElementById("microfeedback"),
       feedbackBadge: document.getElementById("feedbackBadge"),
-      feedbackDot: document.getElementById("feedbackDot"),
       feedbackTypeLabel: document.getElementById("feedbackTypeLabel"),
       feedbackText: document.getElementById("feedbackText"),
       options: document.getElementById("options"),
@@ -889,25 +906,12 @@
       return INDICATOR_STYLE[indicador] || INDICATOR_STYLE["Pensamento"];
     }
 
-    function renderPills(indicadores) {
-      el.activePills.innerHTML = "";
-      indicadores.forEach((nome) => {
-        const style = obterEstiloIndicador(nome);
-        const pill = document.createElement("span");
-        pill.className = "indicator-pill";
-        pill.style.background = style.pillBg;
-        pill.style.color = style.pillText;
-
-        const dot = document.createElement("span");
-        dot.className = "dot";
-        dot.style.background = style.color;
-
-        const text = document.createElement("span");
-        text.textContent = nome;
-
-        pill.appendChild(dot);
-        pill.appendChild(text);
-        el.activePills.appendChild(pill);
+    function renderIndicadores(indicadores) {
+      const colunas = el.indicatorGrid.querySelectorAll(".indicator-column");
+      colunas.forEach((coluna) => {
+        const nome = coluna.getAttribute("data-indicator");
+        const ativo = indicadores.includes(nome);
+        coluna.classList.toggle("is-active", ativo);
       });
     }
 
@@ -917,7 +921,6 @@
       el.microfeedback.style.borderLeftColor = "transparent";
       el.feedbackBadge.style.background = "transparent";
       el.feedbackBadge.style.color = "inherit";
-      el.feedbackDot.style.background = "transparent";
       el.feedbackTypeLabel.textContent = "";
       el.feedbackText.textContent = "";
       el.nextBtn.classList.remove("show");
@@ -942,15 +945,11 @@
       const principal = carta.indicadores[0];
       const principalStyle = obterEstiloIndicador(principal);
 
-      el.progressText.textContent = "Carta " + (atual + 1) + " de " + total;
-      el.progressFill.style.width = ((atual + 1) / total) * 100 + "%";
+      el.progressText.textContent = "CARTA " + (atual + 1) + " DE " + total;
 
-      renderPills(carta.indicadores);
+      renderIndicadores(carta.indicadores);
 
       el.card.style.borderColor = principalStyle.color;
-      el.cardTag.style.color = principalStyle.pillText;
-      el.cardTag.style.background = principalStyle.pillBg;
-      el.tagDot.style.background = principalStyle.color;
       el.situationText.textContent = carta.situacao;
       el.contextText.textContent = carta.contexto || "";
 
@@ -1004,16 +1003,21 @@
       el.microfeedback.style.borderLeftColor = style.border;
       el.microfeedback.style.color = style.text;
 
-      el.feedbackBadge.style.background = "rgba(255, 255, 255, 0.55)";
+      el.feedbackBadge.style.background = "transparent";
       el.feedbackBadge.style.color = style.text;
-      el.feedbackDot.style.background = style.border;
-      el.feedbackTypeLabel.textContent = style.label + " +" + opcaoEscolhida.pontos;
+      if (opcaoEscolhida.tipo === "adaptativo") {
+        el.feedbackTypeLabel.textContent = "✓ Resposta adaptativa (+2)";
+      } else if (opcaoEscolhida.tipo === "parcial") {
+        el.feedbackTypeLabel.textContent = "~ Parcialmente adaptativa (+1)";
+      } else {
+        el.feedbackTypeLabel.textContent = "✕ Resposta desadaptativa (0)";
+      }
       el.feedbackText.textContent = opcaoEscolhida.feedback;
       el.microfeedback.classList.add("show");
 
       window.setTimeout(() => {
         el.nextBtn.classList.add("show");
-      }, 300);
+      }, 400);
     }
 
     function renderResumoFinal() {
@@ -1022,9 +1026,8 @@
       el.nextBtn.classList.remove("show");
       el.summary.hidden = false;
 
-      el.progressText.textContent = "Carta 12 de 12";
-      el.progressFill.style.width = "100%";
-      el.activePills.innerHTML = "";
+      el.progressText.textContent = "CARTA 12 DE 12";
+      renderIndicadores([]);
 
       el.scoreList.innerHTML = "";
       Object.keys(state.pontuacoes).forEach((indicador) => {
@@ -1068,6 +1071,11 @@
       }
       state.indiceAtual += 1;
       renderCarta();
+    });
+
+    el.closeBtn.addEventListener("click", () => {
+      el.gameScreen.classList.add("is-hidden");
+      el.startScreen.classList.remove("is-hidden");
     });
 
     el.restartBtn.addEventListener("click", reiniciarJogo);
