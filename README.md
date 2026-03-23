@@ -61,12 +61,12 @@ baseadas nos padrões identificados.
 ## 🚀 Como Executar
 
 **Opção 1 — Acessar online:**
-[igorgm2010.github.io/jogo_equilibrio](https://igorgm2010.github.io/jogo_equilibrio)
+[igorgm2010.github.io/EQUILIBRIO](https://igorgm2010.github.io/EQUILIBRIO)
 
 **Opção 2 — Rodar localmente:**
 ```bash
 # Clone o repositório
-git clone https://github.com/IgorGM2010/jogo_equilibrio.git
+git clone https://github.com/IgorGM2010/EQUILIBRIO
 
 # Abra o arquivo no navegador
 cd jogo_equilibrio
